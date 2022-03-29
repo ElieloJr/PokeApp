@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TypeCollectionViewCell" id="gTV-IL-0wX" customClass="TypeCollectionViewCell" customModule="PokeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W1L-eA-Tmz">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CR-b2-Mrs">
+                                <rect key="frame" x="10" y="10" width="80" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9CR-b2-Mrs" secondAttribute="bottom" constant="10" id="G7Q-8b-8fO"/>
+                            <constraint firstAttribute="width" constant="100" id="MfU-gb-ymA"/>
+                            <constraint firstAttribute="height" constant="40" id="amp-2N-eW0"/>
+                            <constraint firstItem="9CR-b2-Mrs" firstAttribute="leading" secondItem="W1L-eA-Tmz" secondAttribute="leading" constant="10" id="fHO-R2-CRT"/>
+                            <constraint firstItem="9CR-b2-Mrs" firstAttribute="top" secondItem="W1L-eA-Tmz" secondAttribute="top" constant="10" id="jW2-7g-VL7"/>
+                            <constraint firstAttribute="trailing" secondItem="9CR-b2-Mrs" secondAttribute="trailing" constant="10" id="sON-hU-cw7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="W1L-eA-Tmz" secondAttribute="bottom" id="MCh-BM-PNS"/>
+                <constraint firstItem="W1L-eA-Tmz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YOX-Un-kzt"/>
+                <constraint firstItem="W1L-eA-Tmz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ph2-Fq-6gL"/>
+                <constraint firstAttribute="trailing" secondItem="W1L-eA-Tmz" secondAttribute="trailing" id="rgg-ju-Msx"/>
+            </constraints>
+            <connections>
+                <outlet property="backgroundUIView" destination="W1L-eA-Tmz" id="1ft-jA-rZd"/>
+                <outlet property="typeLabel" destination="9CR-b2-Mrs" id="yQn-0l-yLs"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="125"/>
+        </collectionViewCell>
+    </objects>
+</document>

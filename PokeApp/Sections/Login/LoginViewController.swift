@@ -25,12 +25,10 @@ class LoginViewController: UIViewController {
         enterButton.layer.cornerRadius = 10
         registerButton.layer.cornerRadius = 10
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         setupView()
-       
         emailTextField.text = viewModel.getLastAccessedEmail()
     }
     @IBAction func loginButtonClick(_ sender: Any) {
@@ -40,6 +38,12 @@ class LoginViewController: UIViewController {
     }
     @IBAction func registerButtonsClick(_ sender: Any) {
         self.performSegue(withIdentifier: "Cadastrar", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cameIn" {
+            guard let vc = segue.destination as? HomeViewController, let email = emailTextField.text else { return }
+            vc.viewModel.nameUser = self.viewModel.getUserName(email: email)
+        }
     }
 }
 extension LoginViewController: LoginViewDelegate {
@@ -53,7 +57,9 @@ extension LoginViewController: LoginViewDelegate {
         enterButton.backgroundColor = .orange
     }
     func callSegue() {
-        self.performSegue(withIdentifier: "cameIn", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "cameIn", sender: self)
+        }
     }
     func failedAuthentication(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -36,7 +36,6 @@ class LoginViewModel {
             }
         }
     }
-    
     func canLoginWithFaceId(email: String) -> Bool{
         let lastLoggedUser = getLastAccessedEmail()
         return email == lastLoggedUser
@@ -108,6 +107,16 @@ class LoginViewModel {
             }
         }
         return ""
+    }
+    func getUserName(email: String) -> String {
+        var item: CFTypeRef?
+        if SecItemCopyMatching(makeQuery(email) as CFDictionary, &item) == noErr {
+            if let existingItem = item as? [String: Any],
+               let name = existingItem[kSecAttrService as String] as? String {
+                return "\(name)"
+            }
+        }
+        return "--"
     }
     private func registerAccess(with email: String) -> Bool {
         return addLastAccessedEmail(email: email) ? true : updateLastAccessedEmail(email: email)
