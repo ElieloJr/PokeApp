@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: KeyboardViewController {
     let viewModel = LoginViewModel()
 
     @IBOutlet weak var loginBackground: UIView!
@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var notFoundLabel: UILabel!
+    
+    
     
     func setupView() {
         loginBackground.layer.cornerRadius = 10
@@ -30,7 +32,11 @@ class LoginViewController: UIViewController {
         viewModel.delegate = self
         setupView()
         emailTextField.text = viewModel.getLastAccessedEmail()
+        
     }
+    
+    
+    
     @IBAction func loginButtonClick(_ sender: Any) {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }

@@ -57,6 +57,7 @@ class DetalheViewController: UIViewController {
         
         movesCollectView.dataSource = self
         typesCollectionView.dataSource = self
+        
         movesCollectView.register(UINib(nibName: "MoveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MoveCollectionViewCell")
         typesCollectionView.register(UINib(nibName: "TypeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TypeCollectionViewCell")
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -92,6 +93,7 @@ class DetalheViewController: UIViewController {
         movesCollectView.isHidden = false
     }
 }
+
 extension DetalheViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == movesCollectView {
@@ -123,9 +125,9 @@ extension DetalheViewController: UICollectionViewDataSource {
         return moveCell 
     }
 }
+
 extension DetalheViewController: DetalheViewDelegate {
     func setupHeader(name: String, type: PokemonTypes, image: String, id: Int) {
-        
         backgtoundTop.backgroundColor = viewModel.getColorFor(type: type)
         pokemonNameLabel.text = name.replacingOccurrences(of: "-", with: " ").capitalized
         pokemonIdLabel.text = "#\(id)"

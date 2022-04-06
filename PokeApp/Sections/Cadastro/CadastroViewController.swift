@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CadastroViewController: UIViewController {
+class CadastroViewController: KeyboardViewController {
     
     let viewModel = CadastroViewModel()
 
